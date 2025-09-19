@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Dashboard</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+    body {background: #f5f5f5; color: #333;}
+    
+    /* Navbar */
+    .navbar {
+      background: #ff6b35;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .navbar h1 {font-size: 24px;}
+    .navbar input {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
 
+    /* Dashboard Grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .card:hover {transform: scale(1.05);}
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    .card-content h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: bold;
+      color: #ff6b35;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #ff6b35;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {background: #e85c2c;}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>🍔 Food Dashboard</h1>
+    <input type="text" id="search" placeholder="Search food...">
+  </div>
+
+  <!-- Dashboard Cards -->
+  <div class="dashboard" id="foodList">
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
+      <div class="card-content">
+        <h3>Burger</h3>
+        <p>Delicious cheesy beef burger.</p>
+        <span class="price">$5.99</span><br><br>
+        <button class="btn">Order Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza">
+      <div class="card-content">
+        <h3>Pizza</h3>
+        <p>Freshly baked cheesy pizza.</p>
+        <span class="price">$8.49</span><br><br>
+        <button class="btn">Order Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?pasta" alt="Pasta">
+      <div class="card-content">
+        <h3>Pasta</h3>
+        <p>Italian style creamy pasta.</p>
+        <span class="price">$6.49</span><br><br>
+        <button class="btn">Order Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://source.unsplash.com/400x300/?salad" alt="Salad">
+      <div class="card-content">
+        <h3>Salad</h3>
+        <p>Healthy and fresh veggie salad.</p>
+        <span class="price">$4.49</span><br><br>
+        <button class="btn">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const searchInput = document.getElementById("search");
+    const foodList = document.getElementById("foodList");
+    const cards = foodList.getElementsByClassName("card");
+
+    searchInput.addEventListener("keyup", function() {
+      let filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector("h3").innerText.toLowerCase();
+        if (title.indexOf(filter) > -1) {
+          cards[i].style.display = "";
+        } else {
+          cards[i].style.display = "none";
+        }
+      }
+    });
+  </script>
+</body>
+                                       </html>
