@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2em;
+      color: #facc15;
+    }
+
+    nav a {
+      color: #f8fafc;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    nav a:hover {
+      color: #facc15;
+    }
+
+    /* Seat Layout */
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .screen {
+      background: #fff;
+      height: 40px;
+      width: 100%;
+      margin: 20px auto;
+      border-radius: 5px;
+    }
+    .seats {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      justify-items: center;
